@@ -8,3 +8,13 @@ def flatten(container):
                 yield j
         else:
             yield i
+
+def safe_cast(type, value, safe=None):
+    """try and cast the value to the type
+
+       return safe value if any exceptions occur
+    """
+    try:
+        return type(value)
+    except:
+        return safe

@@ -1,10 +1,14 @@
 # swissarmy/__init__.py
+from typing import Any, Union, MutableSequence
+
 from math import (
     log,
     trunc,
 )
 
 from .EmptyNoneFormatter import EmptyNoneFormatter
+
+NotStringSequence = Union[MutableSequence, tuple]
 
 fmtEmpty = EmptyNoneFormatter()
 
@@ -59,3 +63,10 @@ def iter_or_list(val):
         return [
             val,
         ]
+
+
+def get_last_attr(elm: Any, attrs: NotStringSequence) -> Any:
+    if len(attrs) > 1:
+        return get_last_attr(getattr(elm, attrs[0]), attrs[1:])
+    else:
+        return getattr(elm, attrs[0])

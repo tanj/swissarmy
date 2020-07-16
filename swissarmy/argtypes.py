@@ -1,5 +1,6 @@
 import os.path
 from argparse import ArgumentTypeError, ArgumentError
+import dateutil.parser
 
 
 def valid_dir(arg):
@@ -25,3 +26,11 @@ def valid_connection(string):
         raise ArgumentTypeError(e)
     con.close()
     return string
+
+
+def isodatetime_type(sValue):
+    try:
+        dt = dateutil.parser.isoparse(sValue)
+    except Exception as e:
+        raise ArgumentTypeError(e)
+    return dt

@@ -35,9 +35,14 @@ def safe_cast(type, value, safe=None):
 
 
 def sigfig(val, sigs=3):
-    """Round val to <sigs> significant figures
+    """Round val to `sigs` significant figures
 
-       return float
+    :param val: Value to round to the `sigs` number of the significant figures
+    :type val: float
+    :param sigs: number of significant figures defaults to 3
+    :type sigs: int
+    :return: float `val` rounded to significant figures
+
     """
     nExp = sigs - (1 + trunc(log(abs(float(val)), 10)))
     return round(float(val) * (10.0 ** nExp)) / (10.0 ** nExp)

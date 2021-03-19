@@ -7,5 +7,8 @@ setup(
     author="John teBokkel",
     author_email="tanj.tanj@gmail.com",
     description="A collection of various functions and utilities that keep getting recreated",
-    install_requires=["python-dateutil",],
+    install_requires=[
+        "python-dateutil",
+    ],
+    python_requires=">=3.6",
 )

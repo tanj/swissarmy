@@ -1,4 +1,5 @@
 # swissarmy/__init__.py
+__version__ = "0.1.1"
 from typing import Any, Union, MutableSequence, overload
 
 from math import (
@@ -26,7 +27,7 @@ def flatten(container):
 def safe_cast(type, value, safe=None):
     """try and cast the value to the type
 
-       return safe value if any exceptions occur
+    return safe value if any exceptions occur
     """
     try:
         return type(value)
